@@ -17,8 +17,12 @@ replaces=()
 backup=()
 options=()
 install=$pkgname.install
-source=("https://github.com/creikey/$pkgname/archive/v$pkgver.tar.gz")
-md5sums=('f0dc7ec5d07e25ff20877731a11ce51e')
+source=("https://github.com/creikey/$pkgname/archive/master.tar.gz")
+md5sums=('ce4025675d5565b522db93b5b9804c4e')
+
+prepare() {
+    mv "$pkgname-master" "$pkgname-$pkgver"
+}
 
 build() {
 	cd "$srcdir/$pkgname-$pkgver"
